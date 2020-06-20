@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ivan",
+      "lastname": "Ivanov"
+    },
+    {
+      "name": "adsfasdf",
+      "lastname": "afdsfasdf",
+      "id": 3
+    },
+    {
+      "name": "Shamil",
+      "lastname": "Developer",
+      "id": 4
+    },
+    {
+      "name": "фвафыва",
+      "lastname": "фывафывафыв",
+      "id": 6
+    }
+  ]
+}
