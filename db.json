@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Ivan",
-      "lastname": "Ivanov"
-    },
-    {
       "name": "adsfasdf",
       "lastname": "afdsfasdf",
       "id": 3
@@ -17,8 +12,18 @@
     },
     {
       "name": "фвафыва",
-      "lastname": "фывафывафыв",
+      "lastname": "asdfasdfasdf",
       "id": 6
+    },
+    {
+      "name": "asdfadsf",
+      "lastname": "adsfasdfasdf",
+      "id": 7
+    },
+    {
+      "name": "афыва",
+      "lastname": "фвыафыва",
+      "id": 8
     }
   ]
 }

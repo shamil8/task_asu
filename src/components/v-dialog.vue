@@ -43,7 +43,7 @@
             saveUser() {
                 if (this.user.name && this.user.name) {
                     if (this.user.id) {
-                        axios.put('http://localhost:3000/users/' + this.user.id, this.user)
+                        axios.put('https://json-server.adib.now.sh/users/' + this.user.id, this.user)
                             .then(res => {
                                 if (typeof res.data === 'object') {
                                     this.$emit('get-status',200, 'Сотрудник успешно изменен')
@@ -51,7 +51,7 @@
                             })
                             .catch(err => err.response && this.$emit('get-status',err.response.status))
                     } else {
-                        axios.post('http://localhost:3000/users', this.user)
+                        axios.post('https://json-server.adib.now.sh/users/', this.user)
                             .then(res => {
                                 if (typeof res.data === 'object') {
                                     this.$emit('get-status',200, 'Сотрудник успешно добавлено')

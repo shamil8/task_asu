@@ -75,7 +75,7 @@
                 this.dialogDeleteVisible = true
             },
             actionDelete() {
-                axios.delete('http://localhost:3000/users/' + this.user.id)
+                axios.delete('https://json-server.adib.now.sh/users/' + this.user.id)
                 .then(() => {
                     this.users.splice(this.user.index, 1)
                     this.getStatus(200, 'Сотрудник был успешно удален.')
@@ -122,7 +122,7 @@
                 }
             },
             getUsers() {
-                axios.get('http://localhost:3000/users')
+                axios.get('https://json-server.adib.now.sh/users')
                     .then(res => {
                         if (res.data) {
                             this.users = res.data
