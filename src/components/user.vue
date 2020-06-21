@@ -16,7 +16,7 @@
             <el-table-column>
                 <template slot-scope="scope">
                     <img src="../assets/img/edit.svg" @click="handleEdit(scope.row)" class="action-icons edit" alt="Edit">
-                    <img src="../assets/img/close.svg" @click="handleDelete(scope.$index, scope.row.id)"  class="action-icons close" alt="Close">
+                    <img src="../assets/img/close.svg" @click="statusDialogDelete(true, scope.$index, scope.row.id)"  class="action-icons close" alt="Close">
                 </template>
             </el-table-column>
         </el-table>
@@ -61,7 +61,9 @@
                 dialogDeleteVisible: false,
                 loader: true,
                 users: [],
-                user: {}
+                user: {},
+                delId: null,
+                delIndex: null
             }
         },
         methods: {
@@ -69,24 +71,24 @@
                 this.dialogVisible = true
                 this.user = data
             },
-            handleDelete(index, id) {
-                this.user.id = id
-                this.user.index = index
-                this.dialogDeleteVisible = true
-            },
             actionDelete() {
-                axios.delete('https://json-server.adib.now.sh/users/' + this.user.id)
+                this.delId && this.delIndex
+                && axios.delete('https://json-server.adib.now.sh/users/' + this.delId)
                 .then(() => {
-                    this.users.splice(this.user.index, 1)
+                    this.users.splice(this.delIndex, 1)
                     this.getStatus(200, 'Сотрудник был успешно удален.')
                 })
                 .catch(err => err.response && this.getStatus(err.response.status))
-                .then(() => this.dialogDeleteVisible = false)
-
+                .then(() => this.statusDialogDelete(false))
             },
             closeDialog() {
                 this.dialogVisible = false
                 this.user = {}
+            },
+            statusDialogDelete(status, index = null, id = null) {
+                this.dialogDeleteVisible = status
+                this.delIndex = index
+                this.delId = id
             },
             getStatus(status, text = 'Успешное выполнение запроса') {
                 switch (status) {

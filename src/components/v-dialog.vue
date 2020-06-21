@@ -54,7 +54,7 @@
                         axios.post('https://json-server.adib.now.sh/users/', this.user)
                             .then(res => {
                                 if (typeof res.data === 'object') {
-                                    this.$emit('get-status',200, 'Сотрудник успешно добавлено')
+                                    this.$emit('get-status',200, 'Сотрудник успешно добавлен')
                                     this.$emit('user-add', res.data)
                                 }
                             })
